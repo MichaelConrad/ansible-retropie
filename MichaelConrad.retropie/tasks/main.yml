@@ -1,0 +1,7 @@
+---
+# tasks file for MichaelConrad.retropie
+
+- include: do_configure_system.yml
+  tags:
+    - retropie
+    - retropie_configure_system

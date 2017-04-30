@@ -1,0 +1,7 @@
+---
+
+- name: Retropie
+  hosts: "{{ retropie_hosts | default('retropie') }}"
+
+  roles:
+    - { role: MichaelConrad.retropie, become: true, tags: retropie }

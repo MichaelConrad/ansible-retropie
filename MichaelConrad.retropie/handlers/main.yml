@@ -1,0 +1,13 @@
+---
+# handlers file for MichaelConrad.retropiea
+
+- name: reboot_retropie
+  become: true
+  command: shutdown -r now "Ansible triggered reboot"
+  async: 1
+  poll: 0
+  ignore_errors: true
+
+- name: reboot_retropie_wait
+  become: false
+  local_action: wait_for host={{ ansible_host | default(inventory_hostname) }} port={{ ansible_port | default(22) }} state=started delay=30 timeout=300

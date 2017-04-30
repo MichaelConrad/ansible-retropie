@@ -1,0 +1,20 @@
+---
+
+- name: Configure the system hostname
+  become: true
+  copy:
+    content: "{{ retropie_hostname }}"
+    dest: "/etc/hostname"
+  notify:
+    - reboot_retropie
+    - reboot_retropie_wait
+
+- name: Install the system templates
+  become: true
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: "{{ item.owner }}"
+    mode: "{{ item.mode }}"
+  with_items:
+    - { src: "hosts.j2", dest: "/etc/hosts", owner: "root", mode: 0644 }

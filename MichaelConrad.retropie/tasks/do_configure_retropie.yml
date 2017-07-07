@@ -1,0 +1,15 @@
+---
+
+- name: Update the RetroPie-Setup script
+  become: true
+  become_user: "pi"
+  git:
+    repo: https://github.com/RetroPie/RetroPie-Setup.git
+    dest: /home/pi/RetroPie-Setup
+    accept_hostkey: true
+    force: true
+    version: "master"
+
+- name: Update installed packages
+  shell:
+/retropie_packages.sh setup post_update update_packages_gui_setup update

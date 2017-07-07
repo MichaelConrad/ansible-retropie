@@ -5,3 +5,8 @@
   tags:
     - retropie
     - retropie_configure_system
+
+- include: do_configure_retropie.yml
+  tags:
+    - retropie
+    - retropie_configure_retropie

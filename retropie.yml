@@ -4,4 +4,4 @@
   hosts: "{{ retropie_hosts | default('retropie') }}"
 
   roles:
-    - { role: MichaelConrad.retropie, become: true, tags: retropie }
+    - { role: MichaelConrad.retropie, tags: retropie }

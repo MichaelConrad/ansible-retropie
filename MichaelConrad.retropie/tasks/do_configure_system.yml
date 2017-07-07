@@ -18,3 +18,10 @@
     mode: "{{ item.mode }}"
   with_items:
     - { src: "hosts.j2", dest: "/etc/hosts", owner: "root", mode: 0644 }
+
+- name: Perform apt-get update / upgrade
+  become: true
+  apt:
+    update_cache: yes
+    upgrade: dist
+    cache_valid_time: 86400
